@@ -1,6 +1,3 @@
-/**
- * Created by Duncan on 7/27/2016.
- */
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
@@ -34,6 +31,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
     });
 });
 
+// CONTACTS API ROUTES BELOW
+
+// Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
     console.log("ERROR: " + reason);
     res.status(code || 500).json({"error": message});
@@ -43,8 +43,15 @@ function handleError(res, reason, message, code) {
  *    GET: finds all contacts
  *    POST: creates a new contact
  */
-    
+
 app.get("/contacts", function(req, res) {
+    db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get contacts.");
+        } else {
+            res.status(200).json(docs);
+        }
+    });
 });
 
 app.post("/contacts", function(req, res) {
@@ -71,10 +78,34 @@ app.post("/contacts", function(req, res) {
  */
 
 app.get("/contacts/:id", function(req, res) {
+    db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to get contact");
+        } else {
+            res.status(200).json(doc);
+        }
+    });
 });
 
 app.put("/contacts/:id", function(req, res) {
+    var updateDoc = req.body;
+    delete updateDoc._id;
+
+    db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to update contact");
+        } else {
+            res.status(204).end();
+        }
+    });
 });
 
 app.delete("/contacts/:id", function(req, res) {
+    db.collection(CONTACTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+        if (err) {
+            handleError(res, err.message, "Failed to delete contact");
+        } else {
+            res.status(204).end();
+        }
+    });
 });
