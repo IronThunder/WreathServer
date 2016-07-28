@@ -83,7 +83,7 @@ app.get("/contacts", function(req, res) {
     });
 });
 
-app.get("/scouts2", function (req, res) {
+app.get("/scouts", function (req, res) {
     db.collection(SCOUTS_COLLECTION).find({}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get scouts.");
