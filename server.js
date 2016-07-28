@@ -47,16 +47,6 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
-app.get("/scouts/:id", function(req, res) {
-    db.collection(SCOUTS_COLLECTION).findOne({_id: new ObjectID(req.params.id) }, function(err, doc) {
-        if (err) {
-            handleError(res, err.message, "Failed to get scout");
-        } else {
-            res.status(204).json(doc);
-        }
-    });
-});
-
 app.post("/addscout", function(req, res) {
     var newScout = req.body;
     newScout.createDate = new Date();
@@ -93,6 +83,16 @@ app.get("/contacts", function(req, res) {
     });
 });
 
+app.get("/scouts2", function (req, res) {
+    db.collection(SCOUTS_COLLECTION).find({}).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get scouts.");
+        } else {
+            res.status(200).json(docs);
+        }
+    })
+});
+
 app.get("/customers", function (req, res) {
     db.collection(CUSTOMERS_COLLECTION).find({}).toArray(function (err, docs) {
         if (err) {
@@ -117,7 +117,7 @@ app.post("/customers", function(req, res) {
             res.status(201).json(doc.ops[0]);
         }
     })
-})
+});
 
 app.post("/contacts", function(req, res) {
     var newContact = req.body;
