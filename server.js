@@ -104,7 +104,7 @@ app.get("/customers", function (req, res) {
 });
 
 app.get("/clearall", function(req, res) {
-    db.collection(SCOUTS_COLLECTION).deleteMany({ name: req.params.name }, function(err, doc) {
+    db.collection(SCOUTS_COLLECTION).removeMany({}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to get contact");
         } else {
