@@ -84,7 +84,7 @@ app.get("/contacts", function(req, res) {
 });
 
 app.get("/scouts", function (req, res) {
-    db.collection(SCOUTS_COLLECTION).find({}).toArray(function (err, docs) {
+    db.collection(SCOUTS_COLLECTION).find({name: req.params.name}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get scouts.");
         } else {
