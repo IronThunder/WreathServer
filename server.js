@@ -63,7 +63,7 @@ app.post("/addscout", function(req, res) {
     });
 });
 
-app.get("/scouts/:id/sales/:year", function (req, res) {
+app.get("/scouts/sales", function (req, res) {
     db.collection(SALESHEETS_COLLECTION).findOne({scoutId: new ObjectID(req.params.id), year: req.params.id}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to get sales spreadsheet data.");
@@ -72,6 +72,18 @@ app.get("/scouts/:id/sales/:year", function (req, res) {
         }
     });
 });
+
+app.post("/scouts/sales", function (req, res) {
+    var sale = req.body;
+
+    db.collection(SALESHEETS_COLLECTION).insertOne(sale, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to create new customer.");
+        } else {
+            res.status(201).json(doc.ops[0]);
+        }
+    })
+})
 
 app.get("/contacts", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
@@ -111,7 +123,7 @@ app.get("/clearall", function(req, res) {
             res.status(200).json(doc);
         }
     });
-})
+});
 
 app.post("/customers", function(req, res) {
     var newCustomer = req.body;

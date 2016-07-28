@@ -1,2 +1,1 @@
-curl -H "Content-Type: application/json" -d '{"name":"Joeseph", "year":2016, "rank":"Star"}' http://powerful-sea-27631.herokuapp.com/addscout
-curl http://powerful-sea-27631.herokuapp.com/scouts2
+curl -H "Content-Type: application/json" -d '{"scoutId":1, "year":2016, "sales":"[{"type":"Small","num":3},{"type":"Medium","num":4}]"}' http://powerful-sea-27631.herokuapp.com/scout/sales
