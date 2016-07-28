@@ -103,6 +103,16 @@ app.get("/customers", function (req, res) {
     })
 });
 
+app.get("/clearall", function(req, res) {
+    db.collection(SCOUTS_COLLECTION).deleteMany({ name: req.params.name }, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to get contact");
+        } else {
+            res.status(200).json(doc);
+        }
+    });
+})
+
 app.post("/customers", function(req, res) {
     var newCustomer = req.body;
 
