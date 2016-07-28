@@ -73,17 +73,17 @@ app.get("/scouts/sales", function (req, res) {
     });
 });
 
-app.post("/scouts/sales", function (req, res) {
+app.post("/scouts/sales/add", function (req, res) {
     var sale = req.body;
 
     db.collection(SALESHEETS_COLLECTION).insertOne(sale, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to create new customer.");
+            handleError(res, err.message, "Failed to create new spreasheet.");
         } else {
             res.status(201).json(doc.ops[0]);
         }
-    })
-})
+    });
+});
 
 app.get("/contacts", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
