@@ -5,6 +5,9 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 var CONTACTS_COLLECTION = "contacts";
+var SCOUTS_COLLECTION = "scouts";
+var CUSTOMERS_COLLECTION = "customers";
+var SALESHEETS_COLLECTION = "salesheets";
 
 var app = express();
 app.use(express.static(__dirname + "/public"));
@@ -44,6 +47,42 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
+app.get("/scouts/:id", function(req, res) {
+    db.collection(SCOUTS_COLLECTION).findOne({_id: new ObjectID(req.params.id) }, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to get scout");
+        } else {
+            res.status(204).json(doc);
+        }
+    });
+});
+
+app.post("/addscout", function(req, res) {
+    var newScout = req.body;
+    newScout.createDate = new Date();
+
+    if (!req.body.name) {
+        handleError(res, "Invalid user input", "Must provide a name.", 400);
+    }
+    db.collection(SCOUTS_COLLECTION).insertOne(newScout, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to create new scout.");
+        } else {
+            res.status(201).json(doc.ops[0]);
+        }
+    });
+});
+
+app.get("/scouts/:id/sales/:year", function (req, res) {
+    db.collection(SALESHEETS_COLLECTION).findOne({scoutId: new ObjectID(req.params.id), year: req.params.id}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to get sales spreadsheet data.");
+        } else {
+            res.status(204).json(doc);
+        }
+    });
+});
+
 app.get("/contacts", function(req, res) {
     db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
         if (err) {
@@ -78,7 +117,7 @@ app.post("/contacts", function(req, res) {
  */
 
 app.get("/contacts/:id", function(req, res) {
-    db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    db.collection(CONTACTS_COLLECTION).findOne({ id: req.params.id }, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to get contact");
         } else {
