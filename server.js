@@ -93,6 +93,32 @@ app.get("/contacts", function(req, res) {
     });
 });
 
+app.get("/customers", function (req, res) {
+    db.collection(CUSTOMERS_COLLECTION).find({}).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get customers.");
+        } else {
+            res.status(200).json(docs);
+        }
+    })
+});
+
+app.post("/customers", function(req, res) {
+    var newCustomer = req.body;
+
+    if (!req.body.name) {
+        handleError(res, "Invalid user input", "Must provide a name", 400);
+    }
+
+    db.collection(CUSTOMERS_COLLECTION).insertOne(newCustomer, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to create new customer.");
+        } else {
+            res.status(201).json(doc.ops[0]);
+        }
+    })
+})
+
 app.post("/contacts", function(req, res) {
     var newContact = req.body;
     newContact.createDate = new Date();
@@ -117,7 +143,7 @@ app.post("/contacts", function(req, res) {
  */
 
 app.get("/contacts/:id", function(req, res) {
-    db.collection(CONTACTS_COLLECTION).findOne({ id: req.params.id }, function(err, doc) {
+    db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to get contact");
         } else {
