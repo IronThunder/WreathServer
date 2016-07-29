@@ -73,7 +73,7 @@ app.get("/scouts/sales", function (req, res) {
     });
 });
 
-app.post("/scouts/sales/add", function (req, res) {
+app.post("/scouts/sales", function (req, res) {
     var sale = req.body;
 
     db.collection(SALESHEETS_COLLECTION).insertOne(sale, function(err, doc) {
@@ -107,6 +107,19 @@ app.get("/scouts", function (req, res) {
 
 app.get("/customers", function (req, res) {
     db.collection(CUSTOMERS_COLLECTION).find({}).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get customers.");
+        } else {
+            res.status(200).json(docs);
+        }
+    })
+});
+
+app.get("/customers/subset", function (req, res) {
+    var customersToGet = req.body;
+    customersToGet = customersToGet.map(function (cust) {return new ObjectID(cust)})
+
+    db.collection(CUSTOMERS_COLLECTION).find({id: {$in: customersToGet}}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get customers.");
         } else {
