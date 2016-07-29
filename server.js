@@ -116,7 +116,7 @@ app.get("/customers", function (req, res) {
 });
 
 app.get("/customers/subset", function (req, res) {
-    var customersToGet = req.body;
+    var customersToGet = req.body.ids;
     customersToGet = customersToGet.map(function (cust) {return new ObjectID(cust)})
 
     db.collection(CUSTOMERS_COLLECTION).find({id: {$in: customersToGet}}).toArray(function (err, docs) {

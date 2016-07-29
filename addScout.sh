@@ -1,2 +1,1 @@
-curl -H "Content-Type: application/json" -d '{"id":1, "name":"John Jackson" "year":2016, "phone":"264122"}' http://powerful-sea-27631.herokuapp.com/customers
-curl -H "Content-Type: application/json" -d '{"id":2, "name":"Jack Johnson" "year":6102, "phone":"221462"}' http://powerful-sea-27631.herokuapp.com/customers
+curl http://powerful-sea-27631.herokuapp.com/customers/subset?id=
