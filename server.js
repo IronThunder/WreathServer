@@ -144,7 +144,7 @@ app.get("/clearall", function(req, res) {
 app.post("/customers", function(req, res) {
     var newCustomer = req.body;
 
-    if (!req.body.name) {
+    if (!req.body['Customer Name']) {
         handleError(res, "Invalid user input", "Must provide a name", 400);
     }
 

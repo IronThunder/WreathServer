@@ -1,1 +1,1 @@
-curl http://powerful-sea-27631.herokuapp.com/customers/
+curl -X POST -d "Customer Name=Joe Schmoe&Phone Number=8888888889&Active?=True&Address=9 Somewhere Ave&Email=joe@schmoe.com" http://powerful-sea-27631.herokuapp.com/customers/
