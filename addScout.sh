@@ -1,1 +1,1 @@
-curl http://powerful-sea-27631.herokuapp.com/customers/
+curl /customers/http://powerful-sea-27631.herokuapp.com

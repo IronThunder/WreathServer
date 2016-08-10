@@ -3,6 +3,8 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
+var cors = require('cors');
+
 
 var CONTACTS_COLLECTION = "contacts";
 var SCOUTS_COLLECTION = "scouts";
@@ -10,6 +12,7 @@ var CUSTOMERS_COLLECTION = "customers";
 var SALESHEETS_COLLECTION = "salesheets";
 
 var app = express();
+app.use(cors());
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
