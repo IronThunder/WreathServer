@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" -d '{"Customer Name":"Jason"}' http://powerful-sea-27631.herokuapp.com/customers
+curl -H "Content-Type: application/json" -d '{"Customer Name":"John Smith", "Phone Number":2772782777, "Address":"22 Nowhere Ave", "Email":"john@smith.com", "Active?":"True"}' http://powerful-sea-27631.herokuapp.com/customers
