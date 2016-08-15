@@ -132,7 +132,7 @@ app.get("/customers/subset", function (req, res) {
 });
 
 app.get("/clearall", function(req, res) {
-    db.collection(CUSTOMERS_COLLECTION).removeMany({'Customer Name': ''}, function(err, doc) {
+    db.collection(CUSTOMERS_COLLECTION).removeMany({id: '57aba31c643d370011f6cc60'}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to get contact");
         } else {
