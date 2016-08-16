@@ -50,60 +50,49 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
-app.post("/addscout", function(req, res) {
-    var newScout = req.body;
-    newScout.createDate = new Date();
+app.get("/scouts", function (req, res) {
+    db.collection(SCOUTS_COLLECTION).find({}).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get scouts.");
+        } else {
+            res.status(200).json(docs);
+        }
+    })
+});
 
-    if (!req.body.name) {
-        handleError(res, "Invalid user input", "Must provide a name.", 400);
+app.post("/scouts", function(req, res) {
+    var newScout = req.body;
+
+    if (!req.body['name']) {
+        handleError(res, "Invalid scout input", "Must provide a name", 400);
     }
+
     db.collection(SCOUTS_COLLECTION).insertOne(newScout, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to create new scout.");
         } else {
             res.status(201).json(doc.ops[0]);
         }
-    });
+    })
 });
 
-app.get("/scouts/sales", function (req, res) {
-    db.collection(SALESHEETS_COLLECTION).findOne({scoutId: new ObjectID(req.params.id), year: req.params.id}, function(err, doc) {
+app.get("/sheets", function (req, res) {
+    db.collection(SALESHEETS_COLLECTION).find({}).toArray(function (err, docs) {
         if (err) {
-            handleError(res, err.message, "Failed to get sales spreadsheet data.");
+            handleError(res, err.message, "Failed to get salesheets.");
         } else {
-            res.status(204).json(doc);
+            res.status(200).json(docs);
         }
-    });
+    })
 });
 
-app.post("/scouts/sales", function (req, res) {
-    var sale = req.body;
-
-    db.collection(SALESHEETS_COLLECTION).insertOne(sale, function(err, doc) {
+app.post("/sheets", function(req, res) {
+    var newSheet = req.body;
+    db.collection(SALESHEETS_COLLECTION).insertOne(newSheet, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to create new spreasheet.");
+            handleError(res, err.message, "Failed to create new salesheet.");
         } else {
             res.status(201).json(doc.ops[0]);
-        }
-    });
-});
-
-app.get("/contacts", function(req, res) {
-    db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
-        if (err) {
-            handleError(res, err.message, "Failed to get contacts.");
-        } else {
-            res.status(200).json(docs);
-        }
-    });
-});
-
-app.get("/scouts", function (req, res) {
-    db.collection(SCOUTS_COLLECTION).find({name: req.params.name}).toArray(function (err, docs) {
-        if (err) {
-            handleError(res, err.message, "Failed to get scouts.");
-        } else {
-            res.status(200).json(docs);
         }
     })
 });
@@ -157,6 +146,11 @@ app.post("/customers", function(req, res) {
     })
 });
 
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/contacts", function(req, res) {
     var newContact = req.body;
     newContact.createDate = new Date();
@@ -170,6 +164,16 @@ app.post("/contacts", function(req, res) {
             handleError(res, err.message, "Failed to create new contact.");
         } else {
             res.status(201).json(doc.ops[0]);
+        }
+    });
+});
+
+app.get("/contacts", function(req, res) {
+    db.collection(CONTACTS_COLLECTION).find({}).toArray(function(err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get contacts.");
+        } else {
+            res.status(200).json(docs);
         }
     });
 });
