@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" -d '{"name":"Johnny", "id":1, "years":{"2016":1}}' http://powerful-sea-27631.herokuapp.com/scouts
+curl -H "Content-Type: application/json" -d '{"id":1,"sheet":{"sales":{"Jane Smith":{"products":[{"type":"Small","num":3},{"type":"Medium","num":2}],"properties":{"Paid?":true,"Delivered?":false}},"John Smith":{"products":[{"type":"Small","num":8},{"type":"Medium","num":9}],"properties":{}}}}}' http://powerful-sea-27631.herokuapp.com/sheets
