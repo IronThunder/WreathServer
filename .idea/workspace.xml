@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fb044cfc-8210-415c-ae79-3520c9d1dc47" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" afterPath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addScout.sh" afterPath="$PROJECT_DIR$/addScout.sh" />
     </list>
     <ignored path="RestHeroku.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -272,12 +270,12 @@
       <workItem from="1470758029067" duration="3763000" />
       <workItem from="1470843936908" duration="7257000" />
       <workItem from="1471279440524" duration="2778000" />
-      <workItem from="1471360571639" duration="2120000" />
+      <workItem from="1471360571639" duration="2718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45666000" />
+    <option name="totallyTimeSpent" value="46264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
