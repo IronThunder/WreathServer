@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fb044cfc-8210-415c-ae79-3520c9d1dc47" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" afterPath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addScout.sh" afterPath="$PROJECT_DIR$/addScout.sh" />
     </list>
     <ignored path="RestHeroku.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="568">
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addScout.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addScout.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addScout.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="294" selection-start-line="0" selection-start-column="294" selection-end-line="0" selection-end-column="294" />
+              <caret line="0" column="77" selection-start-line="0" selection-start-column="77" selection-end-line="0" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -115,8 +114,8 @@
         <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/addCust.sh" />
         <option value="$PROJECT_DIR$/gitCommit.sh" />
-        <option value="$PROJECT_DIR$/addScout.sh" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/addScout.sh" />
       </list>
     </option>
   </component>
@@ -273,12 +272,12 @@
       <workItem from="1470843936908" duration="7257000" />
       <workItem from="1471279440524" duration="2778000" />
       <workItem from="1471360571639" duration="4276000" />
-      <workItem from="1471458254907" duration="1914000" />
+      <workItem from="1471458254907" duration="3076000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49736000" />
+    <option name="totallyTimeSpent" value="50898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1604" height="876" extended-state="0" />
@@ -702,14 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addScout.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="294" selection-start-line="0" selection-start-column="294" selection-end-line="0" selection-end-column="294" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -722,6 +713,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="568">
           <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addScout.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="77" selection-start-line="0" selection-start-column="77" selection-end-line="0" selection-end-column="77" />
           <folding />
         </state>
       </provider>
