@@ -216,3 +216,16 @@ app.delete("/contacts/:id", function(req, res) {
         }
     });
 });
+
+/////////Utility Functions/////////////////////////
+
+app.get("/scouts/addcolumn", function(req, res) {
+
+    db.collection(SCOUTS_COLLECTION).updateMany({}, {$set: {'customerIDs': null}}, function(err, result) {
+        if (err) {
+            handleError(res, err.message, "Failed to delete contact");
+        } else {
+            res.status(204).end();
+        }
+    });
+});
