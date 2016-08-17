@@ -221,7 +221,7 @@ app.delete("/contacts/:id", function(req, res) {
 
 app.get("/scouts/addcolumn", function(req, res) {
 
-    db.collection(SCOUTS_COLLECTION).updateMany({}, {$set: {'customerIDs': null}}, function(err, result) {
+    db.collection(SCOUTS_COLLECTION).updateMany({}, {$set: {'customerIDs': []}}, function(err, result) {
         if (err) {
             handleError(res, err.message, "Failed to delete contact");
         } else {
