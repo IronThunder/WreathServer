@@ -69,11 +69,24 @@ app.post("/scouts", function(req, res) {
 
     db.collection(SCOUTS_COLLECTION).insertOne(newScout, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to create new scout.");
+            handleError(res, err.message, "Failed to update scout leads.");
         } else {
             res.status(201).json(doc.ops[0]);
         }
     })
+});
+
+app.post("/leads", function (req, res) {
+    const id = req.body.id;
+    const lead = req.body.lead;
+
+    db.collection(SCOUTS_COLLECTION).updateOne({id: id}, {$set: {'customerIDs': lead}}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to update contact");
+        } else {
+            res.status(204).end();
+        }
+    });
 });
 
 app.get("/sheets", function (req, res) {
