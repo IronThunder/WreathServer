@@ -80,7 +80,7 @@ app.post("/leads", function (req, res) {
     const id = req.body.id;
     const lead = req.body.lead;
 
-    db.collection(SCOUTS_COLLECTION).updateOne({id: id}, {$set: {'customerIDs': lead}}, function(err, doc) {
+    db.collection(SCOUTS_COLLECTION).updateOne({id: id}, {$push: {'customerIDs': lead}}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to update contact");
         } else {
