@@ -134,7 +134,7 @@ app.get("/customers/subset", function (req, res) {
 });
 
 app.get("/clearall", function(req, res) {
-    db.collection(SCOUTS_COLLECTION).removeMany({id: 8}, function(err, doc) {
+    db.collection(SCOUTS_COLLECTION).removeMany({customerIDs: {$exists: false}}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
         } else {
