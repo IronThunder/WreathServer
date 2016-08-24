@@ -1,1 +1,1 @@
-curl -X DELETE http://powerful-sea-27631.herokuapp.com/scouts/preclear?name=Joeseph
+curl -X GET http://powerful-sea-27631.herokuapp.com/preclearall?name=Joeseph

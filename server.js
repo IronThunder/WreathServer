@@ -166,6 +166,18 @@ app.get("/clearall", function(req, res) {
     });
 });
 
+app.get("/preclearall", function(req, res) {
+    var name = req.params.name;
+    
+    db.collection(SCOUTS_COLLECTION).removeMany({'name': name}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to clear all");
+        } else {
+            res.status(200).json(doc);
+        }
+    });
+});
+
 app.post("/customers", function(req, res) {
     var newCustomer = req.body;
 
