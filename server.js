@@ -144,7 +144,21 @@ app.get("/customers/subset", function (req, res) {
 });
 
 app.get("/clearall", function(req, res) {
-    db.collection(SCOUTS_COLLECTION).removeMany({customerIDs: {$exists: false}}, function(err, doc) {
+    db.collection(SCOUTS_COLLECTION).removeMany({}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to clear all");
+        } else {
+            res.status(200).json(doc);
+        }
+    });
+    db.collection(CUSTOMERS_COLLECTION).removeMany({}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to clear all");
+        } else {
+            res.status(200).json(doc);
+        }
+    });
+    db.collection(SALESHEETS_COLLECTION).removeMany({}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
         } else {
