@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fb044cfc-8210-415c-ae79-3520c9d1dc47" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" afterPath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addScout.sh" afterPath="$PROJECT_DIR$/addScout.sh" />
     </list>
     <ignored path="RestHeroku.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/addScout.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="92" selection-start-line="0" selection-start-column="92" selection-end-line="0" selection-end-column="92" />
+              <caret line="0" column="149" selection-start-line="0" selection-start-column="149" selection-end-line="0" selection-end-column="149" />
               <folding />
             </state>
           </provider>
@@ -275,12 +276,12 @@
       <workItem from="1471458254907" duration="5380000" />
       <workItem from="1471616880121" duration="4119000" />
       <workItem from="1471812997976" duration="676000" />
-      <workItem from="1471964656446" duration="11588000" />
+      <workItem from="1471964656446" duration="11836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69585000" />
+    <option name="totallyTimeSpent" value="69833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1598" height="858" extended-state="0" />
@@ -723,7 +724,7 @@
     <entry file="file://$PROJECT_DIR$/addScout.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="92" selection-start-line="0" selection-start-column="92" selection-end-line="0" selection-end-column="92" />
+          <caret line="0" column="149" selection-start-line="0" selection-start-column="149" selection-end-line="0" selection-end-column="149" />
           <folding />
         </state>
       </provider>
