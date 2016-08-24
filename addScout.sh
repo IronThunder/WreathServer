@@ -1,1 +1,1 @@
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://powerful-sea-27631.herokuapp.com/scouts/preclear?name=Joeseph
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X DELETE http://powerful-sea-27631.herokuapp.com/scouts/preclear?name=Joeseph

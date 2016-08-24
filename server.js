@@ -74,7 +74,7 @@ app.post("/scouts", function(req, res) {
     })
 });
 
-app.get("/scouts/preclear", function (req, res) {
+app.delete("/scouts/preclear", function (req, res) {
 
     db.collection(SCOUTS_COLLECTION).removeMany({name: req.params.name}, function(err, doc) {
         if (err) {
