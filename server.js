@@ -5,7 +5,6 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 var cors = require('cors');
 
-
 var CONTACTS_COLLECTION = "contacts";
 var SCOUTS_COLLECTION = "scouts";
 var CUSTOMERS_COLLECTION = "customers";
@@ -82,7 +81,7 @@ app.get("/scouts/preclear", function (req, res) {
         if (err) {
             handleError(res, err.message, "Failed to remove scout[s] before updating.");
         } else {
-            res.status(200).end();
+            res.status(200)
         }
     });
 });
