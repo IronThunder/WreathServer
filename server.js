@@ -76,7 +76,8 @@ app.post("/scouts", function(req, res) {
 
 app.get("/scouts/preclear", function (req, res) {
     var name = req.params.name;
-    
+    console.log('preclear name: ', name);
+
     db.collection(SCOUTS_COLLECTION).removeMany({name: name}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to remove scout[s] before updating.");
