@@ -82,10 +82,10 @@ app.get("/scouts/preclear", function (req, res) {
         if (err) {
             handleError(res, err.message, "Failed to remove scout[s] before updating.");
         } else {
-            res.status(200).json(doc.ops[0]);
+            res.status(200).end();
         }
     });
-})
+});
 
 app.post("/leads", function (req, res) {
     const id = req.body.id;
