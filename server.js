@@ -76,13 +76,13 @@ app.post("/scouts", function(req, res) {
 });
 
 app.get("/scouts/preclear", function (req, res) {
-    var name = req.body;
+    var name = req.params.name;
     
     db.collection(SCOUTS_COLLECTION).removeMany({name: name}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to remove scout[s] before updating.");
         } else {
-            res.status(201).json(doc.ops[0]);
+            res.status(200).json(doc.ops[0]);
         }
     });
 })
