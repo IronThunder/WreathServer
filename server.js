@@ -173,7 +173,7 @@ app.get("/preclearall", function(req, res) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
         } else {
-            console.log(name);
+            console.log('deleting name', name);
             res.status(200).json(doc);
         }
     });

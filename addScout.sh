@@ -1,1 +1,1 @@
-curl -X GET http://powerful-sea-27631.herokuapp.com/preclear?name=Joeseph
+curl -X GET http://powerful-sea-27631.herokuapp.com/preclearall?name=Joeseph
