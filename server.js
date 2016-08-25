@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 var cors = require('cors');
+var jwt = require('express-jwt');
 
 var CONTACTS_COLLECTION = "contacts";
 var SCOUTS_COLLECTION = "scouts";
@@ -14,6 +15,8 @@ var app = express();
 app.use(cors());
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
+
+app.use(jwt({secret: 'powahay'}));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
