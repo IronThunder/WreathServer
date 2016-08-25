@@ -69,7 +69,7 @@ app.post("/scouts", function(req, res) {
         if (err) {
             handleError(res, err.message, "Failed to add/update scout");
         } else {
-            res.status(204).json(doc.ops[0]);
+            res.status(204).json(docs);
         }
     });
 });
