@@ -65,20 +65,19 @@ app.post("/scouts", function(req, res) {
     if (!req.body['name']) {
         handleError(res, "Invalid scout input", "Must provide a name", 400);
     }
-    db.collection(SCOUTS_COLLECTION).removeMany({name: newScout.name}, function(err, doc) {
+    db.collection(SCOUTS_COLLECTION).updateMany({name: newScout.name}, {$set: {years: newScout.years}}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
         } else {
-            res.status(200).json(doc);
+            db.collection(SCOUTS_COLLECTION).insertOne(newScout, function(err, doc) {
+                if (err) {
+                    handleError(res, err.message, "Failed to add/update scout.");
+                } else {
+                    res.status(204).json(doc.ops[0]);
+                }
+            });
         }
     });
-    db.collection(SCOUTS_COLLECTION).insertOne(newScout, function(err, doc) {
-        if (err) {
-            handleError(res, err.message, "Failed to add/update scout.");
-        } else {
-            res.status(201).json(doc.ops[0]);
-        }
-    })
 });
 
 app.delete("/scouts/preclear", function (req, res) {
