@@ -167,7 +167,7 @@ app.get("/clearall", function(req, res) {
 });
 
 app.get("/preclearall", function(req, res) {
-    var name = req.params.name;
+    var name = req.param.name;
     
     db.collection(SCOUTS_COLLECTION).removeMany({name: name}, function(err, doc) {
         if (err) {
