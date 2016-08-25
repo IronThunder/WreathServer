@@ -65,17 +65,11 @@ app.post("/scouts", function(req, res) {
     if (!req.body['name']) {
         handleError(res, "Invalid scout input", "Must provide a name", 400);
     }
-    db.collection(SCOUTS_COLLECTION).updateMany({name: newScout.name}, {$set: {years: newScout.years}}, function(err, doc) {
+    db.collection(SCOUTS_COLLECTION).updateMany({name: newScout.name}, {$set: {years: newScout.years}}, {upsert: true}, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to clear all");
+            handleError(res, err.message, "Failed to add/update scout");
         } else {
-            db.collection(SCOUTS_COLLECTION).insertOne(newScout, function(err, doc) {
-                if (err) {
-                    handleError(res, err.message, "Failed to add/update scout.");
-                } else {
-                    res.status(204).json(doc.ops[0]);
-                }
-            });
+            res.status(204).json(doc.ops[0]);
         }
     });
 });
@@ -174,7 +168,7 @@ app.get("/clearall", function(req, res) {
 
 app.get("/preclearall", function(req, res) {
     var name = req.param.name;
-    
+
     db.collection(SCOUTS_COLLECTION).removeMany({name: name}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
