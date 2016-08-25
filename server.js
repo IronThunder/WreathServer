@@ -147,23 +147,22 @@ app.get("/clearall", function(req, res) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
         } else {
-            res.status(200).json(doc);
+            db.collection(CUSTOMERS_COLLECTION).removeMany({}, function(err, doc) {
+                if (err) {
+                    handleError(res, err.message, "Failed to clear all");
+                } else {
+                    db.collection(SALESHEETS_COLLECTION).removeMany({}, function(err, doc) {
+                        if (err) {
+                            handleError(res, err.message, "Failed to clear all");
+                        } else {
+                            res.status(200).json(doc);
+                        }
+                    });
+                }
+            });
         }
     });
-    db.collection(CUSTOMERS_COLLECTION).removeMany({}, function(err, doc) {
-        if (err) {
-            handleError(res, err.message, "Failed to clear all");
-        } else {
-            res.status(200).json(doc);
-        }
-    });
-    db.collection(SALESHEETS_COLLECTION).removeMany({}, function(err, doc) {
-        if (err) {
-            handleError(res, err.message, "Failed to clear all");
-        } else {
-            res.status(200).json(doc);
-        }
-    });
+
 });
 
 app.get("/preclearall", function(req, res) {
