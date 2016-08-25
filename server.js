@@ -143,19 +143,22 @@ app.get("/customers/subset", function (req, res) {
 });
 
 app.get("/clearall", function(req, res) {
+    var total = 0;
     db.collection(SCOUTS_COLLECTION).removeMany({}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to clear all");
         } else {
+            total += doc['n'];
             db.collection(CUSTOMERS_COLLECTION).removeMany({}, function(err, doc) {
                 if (err) {
                     handleError(res, err.message, "Failed to clear all");
                 } else {
+                    total += doc['n'];
                     db.collection(SALESHEETS_COLLECTION).removeMany({}, function(err, doc) {
                         if (err) {
                             handleError(res, err.message, "Failed to clear all");
                         } else {
-                            res.status(200).json(doc);
+                            res.status(200).json(Object.assign({}, doc, {'n': total}));
                         }
                     });
                 }
