@@ -4,8 +4,6 @@ var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 var cors = require('cors');
-var auth = require('express-jwt-token')
-    , router = express.Router();
 
 var CONTACTS_COLLECTION = "contacts";
 var SCOUTS_COLLECTION = "scouts";
@@ -13,8 +11,6 @@ var CUSTOMERS_COLLECTION = "customers";
 var SALESHEETS_COLLECTION = "salesheets";
 
 var app = express();
-
-router.all('*', auth.jwtAuthProtected);
 
 
 app.use(cors());
