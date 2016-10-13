@@ -9,6 +9,7 @@ var CONTACTS_COLLECTION = "contacts";
 var SCOUTS_COLLECTION = "scouts";
 var CUSTOMERS_COLLECTION = "customers";
 var SALESHEETS_COLLECTION = "salesheets";
+var DATA_COLLECTION = "data";
 
 var app = express();
 
@@ -199,8 +200,32 @@ app.post("/customers", function(req, res) {
     })
 });
 
+app.get("/data", function (req, res) {
+    db.collection(DATA_COLLECTION).find({}).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to get data.");
+        } else {
+            res.status(200).json(docs);
+        }
+    })
+});
 
+app.post("/data", function(req, res) {
+    var field = req.body.field;
+    var value = req.body.value;
 
+    if (!req.body.field) {
+        handleError(res, "Invalid user input", "Must provide a field to change", 400);
+    }
+
+    db.collection(DATA_COLLECTION).updateOne({field: field}, {$set: {value: value}}, {upsert: true}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to update field in data.");
+        } else {
+            res.status(201).json(doc.ops[0]);
+        }
+    })
+});
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////

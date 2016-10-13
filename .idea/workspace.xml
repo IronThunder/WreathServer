@@ -4,7 +4,6 @@
     <list default="true" id="fb044cfc-8210-415c-ae79-3520c9d1dc47" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" afterPath="$PROJECT_DIR$/wreathslingshotSS_old/wreathslingshotSS-server" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="RestHeroku.iws" />
@@ -31,7 +30,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-              <folding />
+              <folding>
+                <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+                <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+                <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,8 +42,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+            <state relative-caret-position="465">
+              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,8 +52,8 @@
       <file leaf-file-name="gitCommit.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gitCommit.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+            <state relative-caret-position="51">
+              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -280,12 +283,12 @@
       <workItem from="1471812997976" duration="676000" />
       <workItem from="1471964656446" duration="17631000" />
       <workItem from="1472139624444" duration="7038000" />
-      <workItem from="1472160790885" duration="2642000" />
+      <workItem from="1472160790885" duration="7124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85308000" />
+    <option name="totallyTimeSpent" value="89790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1598" height="858" extended-state="0" />
@@ -329,7 +332,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -385,7 +392,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -441,7 +452,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -489,7 +504,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -537,7 +556,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -585,7 +608,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -633,7 +660,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -694,14 +725,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/helperFunctions.js" />
-    <entry file="file://$PROJECT_DIR$/gitCommit.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addScout.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -714,14 +737,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <marker date="1473622196178" expanded="true" signature="0:348" placeholder="{&quot;name&quot;: &quot;MEAN&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="151:245" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1473622196178" expanded="true" signature="265:346" placeholder="{&quot;body-parser&quot;: &quot;^1.13.3&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gitCommit.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        <state relative-caret-position="465">
+          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
           <folding />
         </state>
       </provider>
