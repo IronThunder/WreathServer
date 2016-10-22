@@ -111,7 +111,7 @@ app.post("/leads", function (req, res) {
     });
 });
 
-app.delete("/leads", function (req, res) {
+app.post("/leads/remove", function (req, res) {
     const id = req.body.id;
     const lead = req.body.lead;
 
