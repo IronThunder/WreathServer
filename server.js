@@ -62,6 +62,16 @@ app.get("/scouts", function (req, res) {
     })
 });
 
+app.get("/scouts/additem", function (req, res) {
+    db.collection(SCOUTS_COLLECTION).updateMany({}, {$set: {customerIDs: []}}, {upsert: true}, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to add/update scout");
+        } else {
+            res.status(204).json(doc);
+        }
+    });
+});
+
 app.post("/scouts", function(req, res) {
     var newScout = req.body;
 
@@ -214,7 +224,7 @@ app.post("/data", function(req, res) {
     var field = req.body.field;
     var value = req.body.value;
 
-    if (!req.body.field) {
+        if (!req.body.field) {
         handleError(res, "Invalid user input", "Must provide a field to change", 400);
     }
 
@@ -226,7 +236,7 @@ app.post("/data", function(req, res) {
         }
     })
 });
-
+    
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.post("/contacts", function(req, res) {
