@@ -117,7 +117,7 @@ app.post("/leads/remove", function (req, res) {
 
     db.collection(SCOUTS_COLLECTION).updateOne({id: id}, {$pull: {'customerIDs': lead}}, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to update contact");
+            handleError(res, err.message, "Failed to update leads");
         } else {
             res.status(204).end();
         }
