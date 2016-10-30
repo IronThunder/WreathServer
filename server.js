@@ -10,6 +10,7 @@ var SCOUTS_COLLECTION = "scouts";
 var CUSTOMERS_COLLECTION = "customers";
 var SALESHEETS_COLLECTION = "salesheets";
 var DATA_COLLECTION = "data";
+var USER_COLLECTION = "users";
 
 var app = express();
 
@@ -223,8 +224,8 @@ app.post("/customers", function(req, res) {
     })
 });
 
-app.get("/data", function (req, res) {
-    db.collection(DATA_COLLECTION).find({}).toArray(function (err, docs) {
+app.get("/users", function (req, res) {
+    db.collection(USER_COLLECTION).find({}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get data.");
         } else {
@@ -233,15 +234,16 @@ app.get("/data", function (req, res) {
     })
 });
 
-app.post("/data", function(req, res) {
-    var field = req.body.field;
-    var value = req.body.value;
+app.post("/users", function(req, res) {
+    var email = req.body.email;
+    var name = req.body.value;
+    var superuser = req.body.superuser;
 
-        if (!req.body.field) {
-        handleError(res, "Invalid user input", "Must provide a field to change", 400);
+    if (!req.body.email) {
+        handleError(res, "Invalid user input", "Must provide an email", 400);
     }
 
-    db.collection(DATA_COLLECTION).updateOne({field: field}, {$set: {value: value}}, {upsert: true}, function(err, doc) {
+    db.collection(USER_COLLECTION).updateOne({email: email}, {$set: {name: name, superuser: superuser}}, {upsert: true}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to update field in data.");
         } else {

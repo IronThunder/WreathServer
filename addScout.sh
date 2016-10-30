@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" -d '{"name":"Joeseph","id":9,"years":{"2016":3},"customerIDs":["57ab5e5b9d2745001163f8fd","57b226a988bc130011660d5b"]}' http://powerful-sea-27631.herokuapp.com/scouts
+curl -H "Content-Type: application/json" -d '{"email":"spl.wiltontroop125@gmail.com","name":"Troop 125 SPL","superuser":false}' http://powerful-sea-27631.herokuapp.com/users
