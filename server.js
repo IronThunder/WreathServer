@@ -236,7 +236,7 @@ app.get("/users", function (req, res) {
 
 app.post("/users", function(req, res) {
     var email = req.body.email;
-    var name = req.body.value;
+    var name = req.body.name;
     var superuser = req.body.superuser;
 
     if (!req.body.email) {
