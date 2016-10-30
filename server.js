@@ -212,7 +212,7 @@ app.post("/customers", function(req, res) {
     var newCustomer = req.body;
 
     if (!req.body['Customer Name']) {
-        handleError(res, "Invalid user input", "Must provide a name", 400);
+        handleError(res, "Invalid customer input", "Must provide a name", 400);
     }
 
     db.collection(CUSTOMERS_COLLECTION).insertOne(newCustomer, function(err, doc) {
@@ -222,6 +222,39 @@ app.post("/customers", function(req, res) {
             res.status(201).json(doc.ops[0]);
         }
     })
+});
+
+app.post("/customers/addlead", function(req, res) {
+    var newCustomer = req.body.cust;
+    const scout_id = req.body.scout_id;
+    var toReturn;
+
+    if (!req.body['Customer Name']) {
+        handleError(res, "Invalid customer input", "Must provide a name", 400);
+    }
+
+    db.collection(CUSTOMERS_COLLECTION).insertOne(newCustomer, function(err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to create new customer.");
+        } else {
+            toReturn = doc.ops[0];
+            db.collection(CUSTOMERS_COLLECTION).find({'Customer Name': req.body['Customer Name']}).toArray(function (err, docs) {
+                if (err) {
+                    handleError(res, err.message, "Failed to get customers.");
+                } else {
+                    toReturn += docs;
+                    const lead = JSON.parse(docs)[0];
+                    db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
+                        if (err) {
+                            handleError(res, err.message, "Failed to update contact");
+                        } else {
+                            res.status(201).json(toReturn + doc2);
+                        }
+                    });
+                }
+            })
+        }
+    });
 });
 
 app.get("/users", function (req, res) {
