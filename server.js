@@ -229,11 +229,12 @@ app.post("/customers/addlead", function(req, res) {
     const scout_id = req.body.scout_id;
     var toReturn;
 
+    console.log('Add Lead New Customer', req.body.cust);
     if (!req.body.cust['Customer Name']) {
         handleError(res, "Invalid customer input", "Must provide a name", 400);
     }
 
-    console.log('Add Lead New Customer', newCustomer);
+    
     res.status(205).end();
 
     // db.collection(CUSTOMERS_COLLECTION).insertOne(newCustomer, function(err, doc) {
