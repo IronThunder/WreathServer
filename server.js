@@ -233,28 +233,31 @@ app.post("/customers/addlead", function(req, res) {
         handleError(res, "Invalid customer input", "Must provide a name", 400);
     }
 
-    db.collection(CUSTOMERS_COLLECTION).insertOne(newCustomer, function(err, doc) {
-        if (err) {
-            handleError(res, err.message, "Failed to create new customer.");
-        } else {
-            toReturn = doc.ops[0];
-            db.collection(CUSTOMERS_COLLECTION).find({'Customer Name': req.body['Customer Name']}).toArray(function (err, docs) {
-                if (err) {
-                    handleError(res, err.message, "Failed to get customers.");
-                } else {
-                    toReturn += docs;
-                    const lead = JSON.parse(docs)[0];
-                    db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
-                        if (err) {
-                            handleError(res, err.message, "Failed to update contact");
-                        } else {
-                            res.status(205).json(toReturn + doc2);
-                        }
-                    });
-                }
-            })
-        }
-    });
+    console.log('Add Lead New Customer', newCustomer);
+    res.status(205).end();
+
+    // db.collection(CUSTOMERS_COLLECTION).insertOne(newCustomer, function(err, doc) {
+    //     if (err) {
+    //         handleError(res, err.message, "Failed to create new customer.");
+    //     } else {
+    //         toReturn = doc.ops[0];
+    //         db.collection(CUSTOMERS_COLLECTION).find({'Customer Name': req.body['Customer Name']}).toArray(function (err, docs) {
+    //             if (err) {
+    //                 handleError(res, err.message, "Failed to get customers.");
+    //             } else {
+    //                 toReturn += docs;
+    //                 const lead = JSON.parse(docs)[0];
+    //                 db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
+    //                     if (err) {
+    //                         handleError(res, err.message, "Failed to update contact");
+    //                     } else {
+    //                         res.status(205).json(toReturn + doc2);
+    //                     }
+    //                 });
+    //             }
+    //         })
+    //     }
+    // });
 });
 
 app.get("/users", function (req, res) {
