@@ -243,6 +243,7 @@ app.post("/customers/addlead", function(req, res) {
                     if (err) {
                         handleError(res, err.message, "Failed to update contact");
                     } else {
+                        console.log('scouts_collection updated successfully, doc2:', doc2);
                         res.status(205).json(toReturn + doc2);
                     }
                 });
