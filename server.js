@@ -238,8 +238,8 @@ app.post("/customers/addlead", function(req, res) {
                 handleError(res, err.message, "Failed to create new customer.");
             } else {
                 toReturn = doc.ops[0];
-                const lead = JSON.parse(doc)._id;
-                console.log('Lead', lead);
+                const lead = doc._id;
+                console.log('Type of doc:', typeof doc);
                 db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
                     if (err) {
                         handleError(res, err.message, "Failed to update contact");
