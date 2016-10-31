@@ -229,7 +229,7 @@ app.post("/customers/addlead", function(req, res) {
     const scout_id = req.body.scout_id;
     var toReturn;
 
-    if (!req.body['Customer Name']) {
+    if (!req.body.cust['Customer Name']) {
         handleError(res, "Invalid customer input", "Must provide a name", 400);
     }
 
