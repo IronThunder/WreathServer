@@ -239,7 +239,7 @@ app.post("/customers/addlead", function(req, res) {
             } else {
                 toReturn = doc.ops[0];
                 const lead = doc._id;
-                console.log('Type of doc:', typeof doc);
+                console.log('Doc:', doc);
                 db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
                     if (err) {
                         handleError(res, err.message, "Failed to update contact");
