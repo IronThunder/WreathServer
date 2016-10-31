@@ -237,23 +237,23 @@ app.post("/customers/addlead", function(req, res) {
             if (err) {
                 handleError(res, err.message, "Failed to create new customer.");
             } else {
-                res.status(205).json(doc);
-                // toReturn = doc.ops[0];
-                // db.collection(CUSTOMERS_COLLECTION).find({'Customer Name': req.body['Customer Name']}).toArray(function (err, docs) {
-                //     if (err) {
-                //         handleError(res, err.message, "Failed to get customers.");
-                //     } else {
-                //         toReturn += docs;
-                //         const lead = JSON.parse(docs)[0];
-                //         db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
-                //             if (err) {
-                //                 handleError(res, err.message, "Failed to update contact");
-                //             } else {
-                //                 res.status(205).json(toReturn + doc2);
-                //             }
-                //         });
-                //     }
-                // })
+                toReturn = doc.ops[0];
+                db.collection(CUSTOMERS_COLLECTION).find({'Customer Name': req.body.cust['Customer Name']}).toArray(function (err, docs) {
+                    if (err) {
+                        handleError(res, err.message, "Failed to get customers.");
+                    } else {
+                        console.log(docs);
+                        res.status(205).json(doc + docs);
+                        // const lead = JSON.parse(docs)[0];
+                        // db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
+                        //     if (err) {
+                        //         handleError(res, err.message, "Failed to update contact");
+                        //     } else {
+                        //         res.status(205).json(toReturn + doc2);
+                        //     }
+                        // });
+                    }
+                })
             }
         });
     }
