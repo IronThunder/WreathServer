@@ -238,22 +238,14 @@ app.post("/customers/addlead", function(req, res) {
                 handleError(res, err.message, "Failed to create new customer.");
             } else {
                 toReturn = doc.ops[0];
-                db.collection(CUSTOMERS_COLLECTION).find({'Customer Name': req.body.cust['Customer Name']}).toArray(function (err, docs) {
+                const lead = JSON.parse(doc)._id;
+                db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
                     if (err) {
-                        handleError(res, err.message, "Failed to get customers.");
+                        handleError(res, err.message, "Failed to update contact");
                     } else {
-                        console.log(docs);
-                        res.status(205).json(doc + docs);
-                        // const lead = JSON.parse(docs)[0];
-                        // db.collection(SCOUTS_COLLECTION).updateOne({id: scout_id}, {$push: {'customerIDs': lead}}, function(err, doc2) {
-                        //     if (err) {
-                        //         handleError(res, err.message, "Failed to update contact");
-                        //     } else {
-                        //         res.status(205).json(toReturn + doc2);
-                        //     }
-                        // });
+                        res.status(205).json(toReturn + doc2);
                     }
-                })
+                });
             }
         });
     }
