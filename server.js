@@ -248,7 +248,7 @@ app.post("/customers/addlead", function(req, res) {
                         if (err) {
                             handleError(res, err.message, "Failed to update contact");
                         } else {
-                            res.status(201).json(toReturn + doc2);
+                            res.status(205).json(toReturn + doc2);
                         }
                     });
                 }
