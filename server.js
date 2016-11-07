@@ -158,8 +158,7 @@ app.get("/customers", function (req, res) {
 
 app.delete("/customers", function (req, res) {
     var id = req.body.id;
-    console.log("Delete id: ", id);
-    db.collection(CUSTOMERS_COLLECTION).removeOne({_id: id}, function (err, doc) {
+    db.collection(CUSTOMERS_COLLECTION).removeMany({_id: id}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to remove customer")
         } else {
