@@ -156,6 +156,17 @@ app.get("/customers", function (req, res) {
     })
 });
 
+app.delete("/customers", function (req, res) {
+    var id = req.body.custID;
+    db.collection(CUSTOMERS_COLLECTION).removeOne({_id: id}, function (err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to remove customer")
+        } else {
+            res.status(204).end()
+        }
+    })
+});
+
 app.get("/customers/subset", function (req, res) {
     var customersToGet = req.body.ids;
     customersToGet = customersToGet.map(function (cust) {return new ObjectID(cust)});
