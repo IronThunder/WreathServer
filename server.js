@@ -162,7 +162,7 @@ app.delete("/customers", function (req, res) {
         if (err) {
             handleError(res, err.message, "Failed to remove customer")
         } else {
-            console.log('removing customer with id ' + id);
+            console.log(doc);
             res.status(204).end()
         }
     })
