@@ -306,6 +306,17 @@ app.get("/users", function (req, res) {
     })
 });
 
+app.delete("/users", function (req, res) {
+    var email = req.body.email;
+    db.collection(USER_COLLECTION).deleteMany({email: email}).toArray(function (err, docs) {
+        if (err) {
+            handleError(res, err.message, "Failed to delete users.");
+        } else {
+            res.status(204).json(docs);
+        }
+    })
+});
+
 app.post("/users", function(req, res) {
     var email = req.body.email;
     var name = req.body.name;
