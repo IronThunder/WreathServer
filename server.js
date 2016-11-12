@@ -308,7 +308,7 @@ app.get("/users", function (req, res) {
 
 app.delete("/users", function (req, res) {
     var email = req.body.email;
-    db.collection(USER_COLLECTION).deleteMany({email: email}).toArray(function (err, docs) {
+    db.collection(USER_COLLECTION).deleteMany({email: email}, function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to delete users.");
         } else {
