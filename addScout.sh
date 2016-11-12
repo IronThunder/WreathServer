@@ -1,1 +1,2 @@
-curl -H "Content-Type: application/json" -d '{"email":"spl.wiltontroop125@gmail.com","name":"Troop 125 SPL","superuser":false}' http://powerful-sea-27631.herokuapp.com/users
+#!/usr/bin/env bash
+curl -H "Content-Type: application/json" -d '{"name":"Small Decorated","cost":15}' http://powerful-sea-27631.herokuapp.com/prices
