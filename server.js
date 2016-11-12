@@ -158,7 +158,7 @@ app.get("/customers", function (req, res) {
 
 app.delete("/customers", function (req, res) {
     var id = req.body.id;
-    db.collection(CUSTOMERS_COLLECTION).deleteOne({_id: ObjectID('5816a05eef643b001176b102')}, function (err, doc) {
+    db.collection(CUSTOMERS_COLLECTION).deleteOne({_id: ObjectID(id)}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to remove customer")
         } else {
