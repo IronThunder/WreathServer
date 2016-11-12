@@ -125,7 +125,7 @@ app.post("/leads/remove", function (req, res) {
     });
 });
 
-app.get("/prices", function (req, res) {
+app.get("/products", function (req, res) {
     db.collection(PRICE_COLLECTION).find({}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Failed to get prices.");
@@ -135,7 +135,7 @@ app.get("/prices", function (req, res) {
     })
 });
 
-app.put("/prices", function(req, res) {
+app.put("/products", function(req, res) {
     var name = req.body.name;
     var cost = req.body.cost;
     db.collection(PRICE_COLLECTION).updateMany({name: name}, {$set: {name: name, cost: cost}}, {upsert: true}, function(err, doc) {
@@ -147,7 +147,7 @@ app.put("/prices", function(req, res) {
     })
 });
 
-app.delete("/prices", function (req, res) {
+app.delete("/products", function (req, res) {
     var name = req.body.name;
     db.collection(PRICE_COLLECTION).deleteMany({name: name}, function (err, doc) {
         if (err) {
