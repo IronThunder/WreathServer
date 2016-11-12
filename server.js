@@ -135,26 +135,25 @@ app.get("/prices", function (req, res) {
     })
 });
 
-app.post("/prices", function(req, res) {
-    var newItem = req.body;
-    db.collection(PRICE_COLLECTION).insertOne(newItem, function(err, doc) {
-        if (err) {
-            handleError(res, err.message, "Failed to create new salesheet.");
-        } else {
-            res.status(201).json(doc.ops[0]);
-        }
-    })
-});
-
 app.put("/prices", function(req, res) {
     var name = req.body.name;
-    var newName = req.body.newName;
     var cost = req.body.cost;
-    db.collection(PRICE_COLLECTION).updateMany({name: name}, {$set: {name: newName, cost: cost}}, {upsert: true}, function(err, doc) {
+    db.collection(PRICE_COLLECTION).updateMany({name: name}, {$set: {name: name, cost: cost}}, {upsert: true}, function(err, doc) {
         if (err) {
             handleError(res, err.message, "Failed to update field in prices.");
         } else {
             res.status(201).json(doc);
+        }
+    })
+});
+
+app.delete("/prices", function (req, res) {
+    var name = req.body.name;
+    db.collection(PRICE_COLLECTION).deleteMany({name: name}, function (err, doc) {
+        if (err) {
+            handleError(res, err.message, "Failed to remove price object")
+        } else {
+            res.status(204).end()
         }
     })
 });
