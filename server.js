@@ -299,7 +299,7 @@ app.post("/customers/addlead", function(req, res) {
 app.get("/users", function (req, res) {
     db.collection(USER_COLLECTION).find({}).toArray(function (err, docs) {
         if (err) {
-            handleError(res, err.message, "Failed to get data.");
+            handleError(res, err.message, "Failed to get users.");
         } else {
             res.status(200).json(docs);
         }
@@ -317,7 +317,7 @@ app.post("/users", function(req, res) {
 
     db.collection(USER_COLLECTION).updateOne({email: email}, {$set: {name: name, superuser: superuser}}, {upsert: true}, function(err, doc) {
         if (err) {
-            handleError(res, err.message, "Failed to update field in data.");
+            handleError(res, err.message, "Failed to update field in users.");
         } else {
             res.status(201).json(doc.ops[0]);
         }
