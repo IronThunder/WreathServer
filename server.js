@@ -154,7 +154,7 @@ app.put("/prices", function(req, res) {
         if (err) {
             handleError(res, err.message, "Failed to update field in prices.");
         } else {
-            res.status(201).json(doc.ops[0]);
+            res.status(201).json(doc);
         }
     })
 });
